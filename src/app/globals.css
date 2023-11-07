@@ -1,0 +1,35 @@
+body {
+  margin: 0;
+}
+
+.Wrapper-route{
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  background-color: black;
+  width: 100%;
+  height:50px;
+  font-size: 30px;
+}
+.Wrapper-route a {
+  color: white;
+  text-decoration: none;
+  margin: 0 20px 0 20px;
+  &:hover{
+    color: red;
+  }
+} 
+
+.Wrapper-footer {
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  background-color: black;
+  color: white;
+}
+.conteinar {
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
+  min-height: calc(101.1vh - 80px);
+}
