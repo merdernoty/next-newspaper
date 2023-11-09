@@ -1,11 +1,17 @@
 import Link from "next/link";
+import Navigation from "./Navigation";
+
+const navItems = [
+    { label: "Home", href: "/" },
+    { label: "blog", href: "/blog" },
+    { label: "about", href: "/about" },
+];
+
 
 const Header = () => {
     return ( 
         <div className="Wrapper-route">
-            <Link href="/">Home</Link>
-            <Link href="/blog">blog</Link>
-            <Link href="/about">about</Link>
+            <Navigation navLinks={navItems}/>
         </div>
      );
 }

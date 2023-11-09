@@ -1,28 +1,27 @@
-import Link from "next/link";
+"use client";
+
 import React from "react";
+import Posts from "../../../components/Posts";
+import { getAllPosts } from "../../../service/getAllPosts";
+import PostSearch from "../../../components/PostSearch";
 
-async function getData() {
-  const responce = await fetch("https://jsonplaceholder.typicode.com/posts", {
-    next: {
-      revalidate: 60,
-    },
-  });
+function About() {
+  const [posts, setPosts] = React.useState<any[]>([]);
+  const [loading, setLoading] = React.useState(true);
 
-  return responce.json();
-}
-
-async function About() {
-  const posts = await getData();
+  React.useEffect(() => {
+    getAllPosts()
+      .then(setPosts)
+      .finally(() => {
+        setLoading(false);
+      });
+  }, []);
   return (
     <>
+      <PostSearch onSearch={setPosts} />
       <h1>Blog page</h1>
-      <ul>
-        {posts.map((post: any) => (
-          <li key={post.id}>
-            <Link href={`/blog/${post.id}`}>{post.title}</Link>
-          </li>
-        ))}
-      </ul>
+
+      {loading ? <h1>Loading...</h1> : <Posts posts={posts} />}
     </>
   );
 }

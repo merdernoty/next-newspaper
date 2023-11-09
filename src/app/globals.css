@@ -25,11 +25,35 @@ body {
   align-items: end;
   justify-content: center;
   background-color: black;
-  color: white;
+  color: white; 
+  margin-top: 2px;
 }
 .conteinar {
   display: flex;
   justify-content: center;
+ 
   font-size: 30px;
   min-height: calc(101.1vh - 80px);
+}
+a.active { 
+  color: red;
+}
+form {
+ position: absolute;
+}
+
+form input {
+  width: 200px;
+  height: 25px;
+  border-radius:  5px 0px 0px 5px;
+ }
+
+form button {
+  background-color: black;
+  cursor: pointer;
+  color: white;
+  border: none;
+  width: 50px;
+  height: 25px;
+  border-radius:  0px 5px 5px 0px;
 }
